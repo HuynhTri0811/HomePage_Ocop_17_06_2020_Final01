@@ -1,0 +1,164 @@
+<app-header></app-header>
+
+
+
+<div class="container product-main">
+    <div class="row" *ngIf="infos">
+
+        <div class="col-sm-6">
+            <div class="content">
+
+                <!-- Product information for small screens -->
+                <div class="product-details-small">
+                    <!-- Product name and manufacturer -->
+                    <h1>{{infos.product_name}}</h1>
+                    <small>by <a href="#">Frogtastic</a></small>
+
+                    <!-- Product rating and review info -->
+                    <div class="ratings clearfix">
+                        <div class="rateit" data-rateit-value="4.6" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
+                        <div class="extra">
+                            <a href="#reviews">Read all 10 reviews</a> | <a href="review-product.html">Write a review</a>
+                        </div>
+                    </div>
+
+                    <!-- Pricing and offer info -->
+                    <div class="pricing clearfix">
+                        <p class="price"><span class="cur">$</span><span class="total">20.00</span> <span class="delivery">&amp; free delivery</span></p>
+                        <p class="special">2 swimsuits for $35</p>
+                    </div>
+                </div>
+
+                <app-main-img-sider [images]="infos.images"></app-main-img-sider>
+
+            </div>
+        </div>
+        <!-- // end span6 -->
+
+        <div class="col-sm-6">
+            <div class="content">
+
+                <!-- Product information for large screens -->
+                <div class="product-details-large">
+                    <!-- Product name and manufacturer -->
+                    <h1>{{infos.product_name}}</h1>
+                    <small>by <a href="#">{{infos.store.store_name}}</a></small>
+
+                    <!-- Product rating and review info -->
+                    <div class="ratings clearfix">
+                        <div class="rateit" data-rateit-value="4.6" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
+                        <div class="extra">
+                            <a href="#reviews">Hơn 10 người đã đặt mua sản phẩm</a> | <a href="review-product.html">Để lại lời nhắn</a>
+                        </div>
+                    </div>
+
+                    <!-- Pricing and offer info -->
+                    <div class="pricing clearfix">
+                        <p class="price"><span class="total">{{infos.price_buy | currency: '': '' }}</span><span class="cur">{{infos.price_symbol}}</span></p>
+                        <p class="special" *ngIf="infos.promotion > 0">Giảm {{infos.promotion }} %</p>
+                    </div>
+                </div>
+
+                <!-- Product options -->
+                <form class="form-inline clearfix cart" action="#">
+                    <div>
+                        <label>Số lượng mua </label>
+                        <input type="text" class="input-sm form-control" style="margin-left: 10px;">
+                    </div>
+                    <button class="btn btn-large btn-atc">Mua hàng</button>
+                </form>
+
+                <div class="contact-cart">
+                    <p><i class="fa fa-phone-square"></i> 1900565657 / Email: info@vccu.asia</p>
+                    <p><i class="fa fa-calendar"></i> Thứ 2 đến Thứ 6: Từ 08h - 22h, kể cả thứ 7 - CN</p>
+                </div>
+
+                <!-- Product description etc -->
+                <ul class="nav nav-tabs" id="product-tabs">
+                    <li class="active"><a (click)="showTab('description')">Mô tả sản phẩm</a></li>
+                    <li><a (click)="showTab('care')">Chính sách mua hàng</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="description" [innerHTML]="infos.descriptions">
+
+                    </div>
+                    <div class="tab-pane" id="care">
+                        <p>Rinse your swimsuit in cold water after use and allow it to dry naturally, away from direct heat and sunlight.</p>
+                        <p>After rinsing out the suit, you must wash your suit. Plain water does not remove all the salt or chlorine. Fill a sink with water and add just a tablespoon or less of liquid detergent. Don't use powders because they may not dissolve
+                            completely or rinse away well. And, never use bleach. Turn your swimsuit inside out. Swish for several minutes and then rinse well. Gently squeeze - don't wring - the water out of the fabric. Spread your suit flat to dry in
+                            a spot out of direct sunlight.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- // end span6 -->
+
+    </div>
+    <!-- //end row -->
+
+    <div class="row" id="reviews">
+        <div class="col-xs-12">
+            <div class="review-overview">
+                <div class="content clearfix">
+                    <h3>Reviews</h3>
+
+                    <!-- Review ratings breakdown -->
+                    <ul class="review-totals">
+                        <li>
+                            <p>5 star</p>
+                            <div class="meter">
+                                <span style="width: 50%"></span>
+                            </div>
+                            <p>5</p>
+                        </li>
+                        <li>
+                            <p>4 star</p>
+                            <div class="meter">
+                                <span style="width: 30%"></span>
+                            </div>
+                            <p>3</p>
+                        </li>
+                        <li>
+                            <p>3 star</p>
+                            <div class="meter">
+                                <span style="width: 20%"></span>
+                            </div>
+                            <p>2</p>
+                        </li>
+                        <li>
+                            <p>2 star</p>
+                            <div class="meter">
+                                <span style="width: 0%"></span>
+                            </div>
+                            <p>0</p>
+                        </li>
+                        <li>
+                            <p>1 star</p>
+                            <div class="meter">
+                                <span style="width: 0%"></span>
+                            </div>
+                            <p>0</p>
+                        </li>
+                    </ul>
+
+                    <!-- Review average -->
+                    <div class="review-main">
+                        <div class="rateit bigstars" data-rateit-value="4.6" data-rateit-ispreset="true" data-rateit-readonly="true" data-rateit-starwidth="32" data-rateit-starheight="32"></div>
+                        <p>4.6 out of 5 stars from 10 reviews</p>
+                        <p><a href="review-product.html" class="btn"><i class="icon-pencil icon-white"></i> write a review</a></p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- //end span12 -->
+    </div>
+    <!-- //end row -->
+
+
+</div>
+<!-- //end container -->
+<app-footer></app-footer>

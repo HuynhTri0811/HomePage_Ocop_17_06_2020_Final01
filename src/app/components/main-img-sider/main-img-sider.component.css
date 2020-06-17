@@ -1,0 +1,19 @@
+.product-page .main-imgs .background {
+    display: none;
+}
+
+.alternate-images {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.alternate-images li {
+    float: left;
+    margin: 0 10px 0 0;
+    box-shadow: 0px 1px 2px rgba(50, 50, 50, 0.38);
+}
+
+.alternate-images li a {
+    display: block;
+}

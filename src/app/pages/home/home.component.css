@@ -1,0 +1,12 @@
+#product-board{
+    min-width:1200px ;
+}
+.cta{
+    text-align: center;
+    width : 470px;
+    height: 298px;
+}
+
+.cta h3 {
+    padding-top: 50px;
+}

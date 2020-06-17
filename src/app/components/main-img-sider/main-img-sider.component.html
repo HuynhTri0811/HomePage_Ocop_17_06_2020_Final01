@@ -1,0 +1,9 @@
+<div class="main-imgs clearfix">
+    <a *ngFor="let item of images; index as i" href="{{item.server_upload + item.image_url}}" title=""><img id="{{'img' + i}}" src="{{item.server_upload + item.image_url}}" alt="BeachFront Frog swimsuit " class="{{i > 0?'main-img img-responsive background':'main-img img-responsive'}}" /></a>
+</div>
+
+<ul class="alternate-images clearfix">
+    <li *ngFor="let item of images; index as i">
+        <a href="javascript:void(0)" (click)="changeImage('img' + i)"><img style="width: 60px; height: 60px; object-fit: cover;" src="{{item.server_upload + item.image_url}}" alt="" /></a>
+    </li>
+</ul>

@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<div id="product-board" class="clearfix" *ngIf="products">
+
+    <!--
+			Products
+			--------
+			Each item on the product board is identified by the 'product' class.
+			There are two size variations, identified by the classes 'medium' or 'large'.
+			
+			Details expansion:
+			The details expansion is operated by an id. 
+			The 'details-extra' div has an id, eg: 'details-0001'
+			This is paired with the anchor tag with class 'details-expand' which has a matching data-target of that id.
+		-->
+		
+
+		<ng-container *ngFor="let product of products; let i=index">
+			<app-product-homepage [index]="i" [product]="product"></app-product-homepage>
+		</ng-container>
+
+	
+	
+
+	
+</div>
+<!-- //end product-board -->
+
+<div class="load-more-container">
+    <button class="btn load-more" (click)="findProducts()">
+			Xem thêm
+		</button>
+</div>
+
+
+<app-footer></app-footer>

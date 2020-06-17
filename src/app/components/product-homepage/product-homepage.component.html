@@ -1,0 +1,25 @@
+<div class="product large"  >
+    <div class="media">
+        <a href="product.html" title="">
+            <img src="{{product.thumbnail ? product.server_thumbnail + product.thumbnail : '/assets/img/product_thumbnail.png'}}" alt="product title" data-img="product-1" class="img-responsive picture_url" />
+        </a>
+        <div class="star-img"> <img src="/assets/img/star/{{product.star_rate}}sao.png" class="img-responsive" /></div>
+    </div>
+    <div class="details">
+        <p class="name"><a href="/san-pham-ocop/{{product.id}}/{{change_alias(product.product_name)}}">{{product.product_name}}</a></p>
+        <p class="price">
+            <span class="total">{{product.price_buy | currency: '': '' }}</span><span class="cur">{{product.price_symbol}}</span>
+            &nbsp;&nbsp;<label class="price" *ngIf="product.promotion > 0"><span class="total" style="text-decoration: line-through;">{{product.price_public | currency: '': '' }}</span><span class="cur">{{product.price_symbol}} </span></label>
+        </p>
+        <a class="details-expand" data-target="{{'details-000' + index}}" id="{{'detail-expand-000' + index}}" (click)="expendClick('detail-expand-000' + index, 'details-000' + index)">+</a>
+    </div>
+    <div class="details-extra" id="{{'details-000' + index}}">
+        <form class="form-inline" action="#">
+            <div>
+                <label>Số lượng</label>
+                <input type="text" class="input-sm form-control quantity" value="1">
+            </div>
+        </form>
+        <button class="btn btn-bottom btn-atc qadd">Mua hàng</button>
+    </div>
+</div>
